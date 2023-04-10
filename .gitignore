@@ -10,3 +10,4 @@ data-test
 npm-debug.log
 static/*.min.js
 config.js
+.idea
