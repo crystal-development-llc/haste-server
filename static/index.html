@@ -1,17 +1,39 @@
-<!DOCTYPE html>
 <html>
 	<head>
-		<title>hastebin</title>
-		<meta charset="utf-8">
-		<meta name="robots" content="noindex,nofollow">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-		<link rel="stylesheet" type="text/css" href="solarized_dark.css">
-		<link rel="stylesheet" type="text/css" href="application.css">
+		<title>Pastebin | Crystal Development</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="solarized_dark.css"/>
+		<link rel="stylesheet" type="text/css" href="application.css"/>
 
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script type="text/javascript" src="highlight.min.js"></script>
 		<script type="text/javascript" src="application.min.js"></script>
 
+		<meta name="robots" content="noindex,nofollow"/>
+		
+		<!-- Primary Meta Tags -->
+		<meta name="title" content="Crystal Pastebin | Crystal Development">
+		<meta name="description" content="Share messages & code-snippets with syntax highlighting.">
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
+		
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://paste.crystaldev.co/">
+		<meta property="og:title" content="Crystal Pastebin | Crystal Development">
+		<meta property="og:description" content="Share messages & code-snippets with syntax highlighting.">
+		<meta property="og:image" content="https://paste.crystaldev.co/postersmall.png">
+		<meta property="theme-color" content="#1C383F">
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary">
+		<meta property="twitter:url" content="https://paste.crystaldev.co/">
+		<meta property="twitter:title" content="Crystal Pastebin | Crystal Development">
+		<meta property="twitter:description" content="Share messages & code-snippets with syntax highlighting.">
+		<meta property="twitter:image" content="https://paste.crystaldev.co/postersmall.png">
+		
 		<script type="text/javascript">
 			let app = null;
 			// Handle pops
@@ -34,17 +56,19 @@
 				console.log(baseUrl);
 				baseUrl = baseUrl.slice(0, baseUrl.length - 1).join('/') + '/';
 				console.log(baseUrl);
-				// baseUrl = 'https://plazatest.zneix.eu/haste/';
-				app = new haste('hastebin', { twitter: true, baseUrl: baseUrl });
+				// baseUrl = 'https://paste.crystaldev.co/haste/';
+				app = new haste('Crystal Pastebin', { twitter: true, baseUrl: baseUrl });
 				handlePop({ target: window });
 			});
 		</script>
+
+	</head>
 
 	<body>
 		<ul id="messages"></ul>
 
 		<div id="key">
-			<div id="pointer" style="display: none;"></div>
+		  <div id="pointer" style="display: none;"></div>
 			<div id="box1">
 				<a href="about.md" class="logo"></a>
 			</div>
@@ -62,7 +86,7 @@
 		</div>
 
 		<div id="linenos"></div>
-		<div class="text-container">
-			<pre id="box" style="display: none;" class="hljs" tabindex="0"><code></code></pre>
-			<textarea spellcheck="false" style="display: none;"></textarea>
-		</div>
+		<pre id="box" style="display: none;" class="hljs" tabindex="0"><code></code></pre>
+		<textarea spellcheck="false" style="display: none;"></textarea>
+	</body>
+</html>
