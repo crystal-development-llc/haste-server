@@ -25,7 +25,7 @@ class haste_document {
 				_this.data = res.data;
 				let high;
 				try {
-					if (lang == 'txt'){
+					if (lang === 'txt'){
 						high = { value: _this.htmlEscape(res.data) };
 					}
 					else if (lang){
@@ -153,7 +153,7 @@ class haste {
 	// If not found, return the type itself - which we'll place as the extension
 	lookupExtensionByType(type){
 		for (let key in haste.extensionMap){
-			if (haste.extensionMap[key] == type)
+			if (haste.extensionMap[key] === type)
 				return key;
 		}
 		return type;
@@ -235,10 +235,10 @@ class haste {
 				label: 'Save',
 				shortcutDescription: 'control + s',
 				shortcut: function (evt){
-					return evt.ctrlKey && (evt.keyCode == 83);
+					return evt.ctrlKey && (evt.keyCode === 83);
 				},
 				action: function (){
-					if (_this.$textarea.val().replace(/^\s+|\s+$/g, '') != ''){
+					if (_this.$textarea.val().replace(/^\s+|\s+$/g, '') !== ''){
 						_this.lockDocument();
 					}
 				}
@@ -247,7 +247,7 @@ class haste {
 				$where: $('#box2 .new'),
 				label: 'New',
 				shortcut: function (evt){
-					return evt.ctrlKey && evt.keyCode == 78;
+					return evt.ctrlKey && evt.keyCode === 78;
 				},
 				shortcutDescription: 'control + n',
 				action: function (){
@@ -258,7 +258,7 @@ class haste {
 				$where: $('#box2 .duplicate'),
 				label: 'Duplicate & Edit',
 				shortcut: function (evt){
-					return _this.doc.locked && evt.ctrlKey && evt.keyCode == 68;
+					return _this.doc.locked && evt.ctrlKey && evt.keyCode === 68;
 				},
 				shortcutDescription: 'control + d',
 				action: function (){
@@ -269,7 +269,7 @@ class haste {
 				$where: $('#box2 .raw'),
 				label: 'Just Text',
 				shortcut: function (evt){
-					return evt.ctrlKey && evt.shiftKey && evt.keyCode == 82;
+					return evt.ctrlKey && evt.shiftKey && evt.keyCode === 82;
 				},
 				shortcutDescription: 'control + shift + r',
 				action: function (){
@@ -280,7 +280,7 @@ class haste {
 				$where: $('#box2 .twitter'),
 				label: 'Twitter',
 				shortcut: function (evt){
-					return _this.options.twitter && _this.doc.locked && evt.shiftKey && evt.ctrlKey && evt.keyCode == 84;
+					return _this.options.twitter && _this.doc.locked && evt.shiftKey && evt.ctrlKey && evt.keyCode === 84;
 				},
 				shortcutDescription: 'control + shift + t',
 				action: function (){
@@ -343,7 +343,7 @@ haste.extensionMap = {
 ///// Tab behavior in the textarea - 2 spaces per tab
 $(function(){
 	$('textarea').keydown(function(evt){
-		if (evt.keyCode == 9){
+		if (evt.keyCode === 9){
 			evt.preventDefault();
 			let myValue = '  ';
 			// http://stackoverflow.com/questions/946534/insert-text-into-textarea-with-jquery
@@ -355,7 +355,7 @@ $(function(){
 				this.focus();
 			}
 			// Mozilla and Webkit
-			else if (this.selectionStart || this.selectionStart == '0'){
+			else if (this.selectionStart || this.selectionStart === '0'){
 				let startPos = this.selectionStart;
 				let endPos = this.selectionEnd;
 				let scrollTop = this.scrollTop;
