@@ -52,6 +52,7 @@ Haste can easily be installed behind your network, and it's all open source!
 * [haste-server](https://github.com/zneix/haste-server)
 
 ## Authors
+This instance is forked, hosted, & maintained by Crystal Development, LLC <contact@crystaldev.co>
 
 Project continued by zneix <zzneix@gmail.com>
 
