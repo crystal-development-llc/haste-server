@@ -3,6 +3,17 @@ module.exports = {
 	"host": "127.0.0.1",
 	"port": 7777,
 
+    // Trust private IP ranges (internal load balancers, etc.)
+    // See https://expressjs.com/en/4x/api.html#trust.proxy.options.table
+    "trustProxy": false,
+
+    // Which header to use to extract real client IP.
+    // Uncomment if `trustProxy` is NOT set `false`
+    // "cf-connecting-ip" for Cloudflare
+    // "x-real-ip" for nginx
+    // "x-forwarded-for" for most other proxies
+    // "proxyHeader": "cf-connecting-ip",
+
 	//length of random characters in link that's generated on document save
 	"keyLength": 10,
 	//max allowed paste length - 0 for unlimited

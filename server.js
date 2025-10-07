@@ -71,9 +71,26 @@ const utils = new HasteUtils();
 		keyLength: config.keyLength,
 		keyGenerator: keyGenerator
 	});
+    
+	// configure proxy settings
+	if (config.trustProxy !== undefined) {
+		app.set('trust proxy', config.trustProxy);
+	}
 
 	//rate limit all requests
-	if (config.rateLimits) app.use(rateLimit(config.rateLimits));
+	if (config.rateLimits) {
+		const limiterConfig = {
+			...config.rateLimits,
+		};
+
+		if (config.proxyHeader && config.trustProxy) {
+			limiterConfig.keyGenerator = (req) => {
+				return req.headers[config.proxyHeader] || req.ip;
+			};
+		}
+
+		app.use(rateLimit(limiterConfig));
+	}
 
 	//try API first
 
