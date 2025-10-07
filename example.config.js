@@ -25,10 +25,10 @@ module.exports = {
 	},
 
 	//rate limits for requests, can be omitted
-	//handled by express-rate-limit, options can be found here: https://github.com/nfriedly/express-rate-limit/blob/master/lib/express-rate-limit.js#L7-L14
+	//handled by express-rate-limit, options can be found here: https://github.com/express-rate-limit/express-rate-limit/blob/66ab47f5fc3f7a1f3f70c080cc57a71a8abe1189/source/types.ts#L231
 	"rateLimits": {
 		"windowMs": 30 * 60 * 1000,
-		"max": 250
+		"limit": 250
 	},
 
 	//storage system used for storing saved haste documents
