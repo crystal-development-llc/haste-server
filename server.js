@@ -2,7 +2,7 @@ const winston = require('winston');
 const fs = require('fs');
 const st = require('st');
 const app = require('express')();
-const { rateLimit } = require('express-rate-limit');
+const { rateLimit, ipKeyGenerator } = require('express-rate-limit');
 
 const DocumentHandler = require('./lib/document_handler');
 const HasteUtils = require('./lib/util');
@@ -81,13 +81,16 @@ const utils = new HasteUtils();
 	if (config.rateLimits) {
 		const limiterConfig = {
 			...config.rateLimits,
-		};
+			keyGenerator: (req, res) => {
+				// Get IP from custom header or req.ip
+				const ip = (config.proxyHeader && config.trustProxy)
+					? (req.headers[config.proxyHeader] || req.ip)
+					: req.ip;
 
-		if (config.proxyHeader && config.trustProxy) {
-			limiterConfig.keyGenerator = (req) => {
-				return req.headers[config.proxyHeader] || req.ip;
-			};
-		}
+				// Pass IP through ipKeyGenerator to handle IPv6 properly
+				return ipKeyGenerator(ip);
+			}
+		};
 
 		app.use(rateLimit(limiterConfig));
 	}
