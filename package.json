@@ -14,6 +14,9 @@
 		"url": "http://seejohncode.com/"
 	},
 	"main": "server.js",
+	"engines": {
+		"node": ">=20.19"
+	},
 	"dependencies": {
 		"@babel/cli": "^7.29.7",
 		"@babel/core": "^7.29.7",

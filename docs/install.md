@@ -24,10 +24,10 @@ If you're using windows, you will have to improvise a bit with Autorestarts.
 
 ## Set up node
 
-Hastebin server runs on the JavaScript runtime called node, so you need to download it first:
+Hastebin server runs on the JavaScript runtime called node (version 20.19 or newer), so you need to download it first:
 
 ```bash
-curl -sL https://deb.nodesource.com/setup_14.x | bash -
+curl -sL https://deb.nodesource.com/setup_22.x | bash -
 apt-get install -y nodejs
 ```
 
